@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>1942</title>
+    <link rel="stylesheet" type="text/css" href="lib/style/1942.css">
+    <audio id="playerExplosion" src="lib/sound/playerExplosion.wav"></audio>
+    <audio id="navyShipExplosion" src="lib/sound/navyShipExplosion.wav"></audio>
+    <audio id="smallShipExplosion" src="lib/sound/smallShipExplosion.wav"></audio>
+    <audio id="Laser_Shoot15" src="lib/sound/Laser_Shoot15.wav"></audio>
+    <audio id="bombSound" src="lib/sound/bombSound.wav"></audio>
+  </head>
+  <body>
+    <div id="canvas-wrapper">
+      <canvas id="game-canvas" width="600" height="600"></canvas>
+    </div>
+    <script src="lib/javascript/util.js"></script>
+    <script src="lib/javascript/sprite.js"></script>
+    <script src="lib/javascript/movingObject.js"></script>
+    <script src="lib/javascript/healthObject.js"></script>
+    <script src="lib/javascript/resources.js"></script>
+    <script src="lib/javascript/asteroid.js"></script>
+    <script src="lib/javascript/navyShip.js"></script>
+    <script src="lib/javascript/game.js"></script>
+    <script src="lib/javascript/keyLibrary.js"></script>
+    <script src="lib/javascript/gameView.js"></script>
+    <script src="lib/javascript/menuView.js"></script>
+    <script src="lib/javascript/ship.js"></script>
+    <script src="lib/javascript/bullet.js"></script>
+    <script src="lib/javascript/bomb.js"></script>
+
+    <script>
+      var canvasEl = document.getElementById("game-canvas");
+      var ctx = canvasEl.getContext('2d');
+      Asteroids.resources.load([
+        'lib/sprites/background.jpg',
+        'lib/sprites/airplane.png',
+        'lib/sprites/sprites.png',
+        'lib/sprites/1945transparent.jpg',
+        'lib/sprites/1945.jpg',
+        'lib/sprites/explosion_0.png',
+        'lib/sprites/images.jpg',
+        'lib/sprites/water.jpg'
+      ]);
+
+
+      Asteroids.resources.onReady(function() {
+        Asteroids.img = Asteroids.resources.get('lib/sprites/1945.jpg')
+        ctx.drawImage(Asteroids.img, 202,245, 20,20, 0, 0, 600,600);
+        Asteroids.menu = new Asteroids.MenuView(ctx);
+        Asteroids.menu.startScreen();
+      }.bind(this));
+
+    </script>
+  </body>
+</html>

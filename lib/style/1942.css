@@ -1,0 +1,10 @@
+#game-canvas {
+  border: 5px solid black;
+  border-radius: 20px;
+  height: 100%;
+}
+div {
+  margin: auto;
+  width: 600px;
+  height: 100%;
+}
