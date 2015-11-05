@@ -18,6 +18,8 @@
     <script src="lib/javascript/sprite.js"></script>
     <script src="lib/javascript/movingObject.js"></script>
     <script src="lib/javascript/healthObject.js"></script>
+    <script src="lib/javascript/enemy.js"></script>
+    <script src="lib/javascript/enemyBullet.js"></script>
     <script src="lib/javascript/resources.js"></script>
     <script src="lib/javascript/asteroid.js"></script>
     <script src="lib/javascript/navyShip.js"></script>
@@ -47,7 +49,7 @@
       Asteroids.resources.onReady(function() {
         Asteroids.img = Asteroids.resources.get('lib/sprites/1945.jpg')
         ctx.drawImage(Asteroids.img, 202,245, 20,20, 0, 0, 600,600);
-        Asteroids.menu = new Asteroids.MenuView(ctx);
+        Asteroids.menu = new Asteroids.MenuView(ctx, canvasEl.width, canvasEl.height);
         Asteroids.menu.startScreen();
       }.bind(this));
 
