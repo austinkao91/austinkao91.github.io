@@ -44,7 +44,7 @@
   };
 
   MenuView.prototype.restart = function() {
-    this.gameView = new Asteroids.GameView(new Asteroids.Game(this.width, this.height), this.ctx, this.width, this.height, this);
+    this.gameView = new Asteroids.GameView(new Asteroids.Game(this.width,this.height), this.ctx, this.width, this.height,this);
   };
 
   MenuView.prototype.stopScreen = function() {
