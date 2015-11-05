@@ -8,7 +8,7 @@
     this.spriteSize = options["spriteSize"];
     this.speed = typeof options["speed"] === 'number' ? options["speed"] : 0;
     this.frames = options["frames"];
-    this._index = 0;
+    this.time = 0;
     this.url = options["url"];
     this.dir = options["dir"] || 'horizontal';
     this.once = options["once"];
@@ -21,7 +21,7 @@
 
   Sprite.prototype = {
     move: function(time) {
-      this._index += time*this.speed;
+      this.time += time*this.speed;
     },
     isCollidedWith: function() {
 
@@ -37,7 +37,7 @@
         for(var i = 0; i < this.frames.length; i++ ) {
           max += this.frames[i];
         }
-        var idx = Math.floor(this._index);
+        var idx = Math.floor(this.time);
         var modIdx = idx % max;
         yCoord = Math.floor(modIdx/rowLength);
         xCoord = modIdx % rowLength;
