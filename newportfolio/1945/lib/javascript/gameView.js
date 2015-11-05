@@ -58,7 +58,7 @@
 
   GameView.prototype.update = function(time) {
     this.handleInput(time);
-    this.game.addEnemies();
+    this.game.addEnemies(time);
     this.game.shoot();
     this.game.checkCollisions();
     this.game.moveObjects(time);

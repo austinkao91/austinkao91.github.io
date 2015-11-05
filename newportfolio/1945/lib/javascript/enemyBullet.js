@@ -18,5 +18,16 @@
   Asteroids.Util.inherits(Asteroids.EnemyBullet, Asteroids.Enemy);
 
 
+    EnemyBullet.prototype.move = function(time){
+      debugger
+      this._index += time*this.speed;
+      this.pos[0] += this.vel[0]*time*this.moveSpeed;
+      this.pos[1] += this.vel[1]*time*this.moveSpeed;
+      if (this.game.outofBounds(this.pos)){
+        this.game.remove(this);
+      }
+      this.hitBoxes = this.updateCenters(time);
+    };
+
 
 })(this);

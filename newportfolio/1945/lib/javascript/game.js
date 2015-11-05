@@ -16,6 +16,7 @@
     this.navyShipSpawn = true;
     this.gameOver = false;
     this.score = 0;
+    this.currentTime = 0;
     this.lives = 3;
   };
 
@@ -63,28 +64,24 @@
   Game.prototype.enableSpawn = function() {
     this.spawn = true;
   };
-
-  Game.prototype.addEnemies = function() {
-    this.addAsteroids();
-    this.addNavyShip();
-  };
-
-  Game.prototype.addAsteroids = function(time) {
-    if(this.spawn) {
-      this.spawn = false;
+  Game.prototype.addAsteroids = function(rand) {
+    if(rand < 1 - Math.pow(0.99, this.currentTime)) {
       this.asteroids.push(new Asteroids.Asteroid(this.randomPosition()));
-
-      setTimeout(this.enableSpawn.bind(this), 250);
     }
   };
 
-  Game.prototype.addNavyShip = function(time) {
-    if(this.navyShipSpawn) {
-      this.navyShipSpawn = false;
+  Game.prototype.addNavyShip = function(rand) {
+    if(rand < 1 - Math.pow(0.995, this.currentTime/8)) {
       this.asteroids.push(new Asteroids.NavyShip(this.randomPosition()));
-      setTimeout(this.enableNavyShipSpawn.bind(this), 15000);
     }
   };
+
+  Game.prototype.addEnemies = function(time) {
+    this.currentTime += time/5;
+    this.addAsteroids(Math.random());
+    this.addNavyShip(Math.random());
+  };
+
 
   Game.prototype.enableNavyShipSpawn = function() {
     this.navyShipSpawn = true;
@@ -119,7 +116,8 @@
         object.constructor === Asteroids.NavyShip) {
       this.asteroids.splice(this.asteroids.indexOf(object),1);
     }
-    if(object.constructor === Asteroids.Bullet) {
+    if(object.constructor === Asteroids.Bullet ||
+        object.constructor === Asteroids.EnemyBullet)  {
       this.bullets.splice(this.bullets.indexOf(object),1);
     }
     if(object.constructor === Asteroids.Battleship) {
