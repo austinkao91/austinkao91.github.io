@@ -11,6 +11,7 @@
     this.hitBoxes = this.getCenters(options["radius"]);
     this.moveSpeed = options["moveSpeed"] || 1;
   };
+
   Asteroids.Util.inherits(Asteroids.MovingObject, Asteroids.Sprite);
 
   MovingObject.prototype.move = function(time){

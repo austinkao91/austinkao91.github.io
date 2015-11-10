@@ -14,15 +14,24 @@
     options.frames = [1];
     options.speed = 15;
     Asteroids.MovingObject.call(this, options);
+
     this.direction = Asteroids.Util.normalize([3,4]);
     this.fire = true;
     this.bomb = true;
+    this.vulnerable = false;
+    setTimeout(this.setVulnerable.bind(this), 3000);
   };
+
+
 
   Battleship.COLOR = "green";
   Battleship.RADIUS = 20;
 
   Asteroids.Util.inherits(Asteroids.Battleship, Asteroids.MovingObject);
+
+  Battleship.prototype.setVulnerable = function(){
+    this.vulnerable = true;
+  };
 
 
   Battleship.prototype.relocate = function(){

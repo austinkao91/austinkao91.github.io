@@ -19,7 +19,6 @@
 
 
     EnemyBullet.prototype.move = function(time){
-      debugger
       this._index += time*this.speed;
       this.pos[0] += this.vel[0]*time*this.moveSpeed;
       this.pos[1] += this.vel[1]*time*this.moveSpeed;

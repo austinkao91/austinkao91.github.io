@@ -21,7 +21,7 @@
       this.hitBoxes.forEach(function(hitBox) {
         var otherBox = otherObject.hitBoxes;
         for(var i = 0; i < otherBox.length; i++ ) {
-          if(this.distance(hitBox, otherBox[i])) {
+          if(otherObject.vulnerable && this.distance(hitBox, otherBox[i])) {
             this.game.handleLifeLost.call(this.game);
           }
         }

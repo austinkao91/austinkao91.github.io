@@ -28,7 +28,6 @@
 
   Game.prototype.spawnPlayer = function() {
     this.battleship = new Asteroids.Battleship(this.shipPosition());
-
   };
 
   Game.prototype.handleLifeLost = function() {
@@ -151,9 +150,8 @@
   Game.prototype.moveObjects = function(time){
     this.allObjects().forEach(function(asteroid){
       asteroid.move(time);
-      if(typeof asteroid.sprite !== "undefined") {
-        asteroid.sprite.update(time);
-      }
+      asteroid.update(time);
+
     });
   };
 
@@ -194,6 +192,41 @@
           }
 
         }
+      }
+    }
+  };
+
+
+  Game.prototype.checkCollisionsHash = function() {
+    var xSize = this.width/ 10;
+    var ySize = this.height/ 10;
+    this.hashObjects(width, height)
+
+  };
+
+  Game.prototype.hashObjects = function(width, height) {
+    hash = {};
+    this.allObjects().forEach(function(object){
+      var x = Math.floor(object.pos[0]/width);
+      var y = Math.floor(object.pos[1]/width);
+      if(!hash.hasOwnProperty(x+"_"+y)) {
+        hash[x+"_"+y] = {bullet: [], ships: [], bulletRadius: 0, shipRadius: 0};
+      }
+
+    });
+  };
+
+  Game.prototype.insertIntoHash = function(hash, object) {
+    if(object.constructor === Bullet || object.constructor === EnemyBullet) {
+      hash[bullet].push(object);
+      if(hash[bulletRadius] < object.radius) {
+        hash[bulletRadius] = object.radius;
+      }
+    } else if (object.constructor === Asteroid || object.constructor === Battleship ||
+               object.constructor === NavyShip) {
+      hash[ships].push(object);
+      if(hash[shipRadius] < object.radius) {
+        hash[shipRadius] = object.radius;
       }
     }
   };

@@ -8,11 +8,11 @@
     this.spriteSize = options["spriteSize"];
     this.speed = typeof options["speed"] === 'number' ? options["speed"] : 0;
     this.frames = options["frames"];
-    this.time = 0;
     this.url = options["url"];
     this.dir = options["dir"] || 'horizontal';
     this.once = options["once"];
     this.pos = options["pos"];
+    this._time = 0;
     this.scale = typeof options["scale"] === 'number' ? options["scale"] : 1;
     this.scaleX = typeof options["scaleX"] === 'number' ? options["scaleX"] : this.scale;
     this.scaleY = typeof options["scaleY"] === 'number' ? options["scaleY"] : this.scale;
@@ -20,8 +20,10 @@
   };
 
   Sprite.prototype = {
+    update: function(time) {
+      this._time += time*this.speed;
+    },
     move: function(time) {
-      this.time += time*this.speed;
     },
     isCollidedWith: function() {
 
@@ -37,7 +39,7 @@
         for(var i = 0; i < this.frames.length; i++ ) {
           max += this.frames[i];
         }
-        var idx = Math.floor(this.time);
+        var idx = Math.floor(this._time);
         var modIdx = idx % max;
         yCoord = Math.floor(modIdx/rowLength);
         xCoord = modIdx % rowLength;
@@ -52,7 +54,7 @@
       var y = this.spritePos[1];
       y += yCoord * this.spriteSize[1];
       x += xCoord*this.spriteSize[0];
-
+      if (this.constructor === Asteroids.Bomb) { debugger;}
       if(typeof canvasPos ==="undefined") {debugger;}
       var canvasSizeX = this.spriteSize[0] * this.scaleX;
       var canvasSizeY = this.spriteSize[1] * this.scaleY;
