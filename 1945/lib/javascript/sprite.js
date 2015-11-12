@@ -54,8 +54,7 @@
       var y = this.spritePos[1];
       y += yCoord * this.spriteSize[1];
       x += xCoord*this.spriteSize[0];
-      if (this.constructor === Asteroids.Bomb) { debugger;}
-      if(typeof canvasPos ==="undefined") {debugger;}
+      
       var canvasSizeX = this.spriteSize[0] * this.scaleX;
       var canvasSizeY = this.spriteSize[1] * this.scaleY;
 

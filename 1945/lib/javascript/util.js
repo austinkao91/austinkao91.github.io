@@ -24,7 +24,8 @@ Util.randomVec = function(length) {
   };
 
   Util.normalize = function(vel,length) {
-    return [length*vel[0]/Util.norm(vel), length*vel[1]/Util.norm(vel)];
+    var norm = length/Util.norm(vel);
+    return [vel[0]*norm, vel[1]*norm];
   };
 
 })(this);

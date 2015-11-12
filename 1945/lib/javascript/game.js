@@ -231,6 +231,21 @@
     }
   };
 
+  Game.prototype.vectorToShip = function(pos) {
+    var vx;
+    var vy;
+    if(this.battleship.pos) {
+      vx = this.battleship.pos[0] - pos[0];
+      vy = this.battleship.pos[1] - pos[1];
+    } else {
+      vy = 5;
+      vx = 0;
+    }
+
+      return [vx,vy];
+  };
+
+
   Game.prototype.allObjects = function() {
     return this.asteroids.concat(this.explosions).concat(this.bullets).concat(this.battleship);
   };
