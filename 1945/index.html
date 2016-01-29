@@ -35,20 +35,17 @@
       var canvasEl = document.getElementById("game-canvas");
       var ctx = canvasEl.getContext('2d');
       Asteroids.resources.load([
-        'lib/sprites/background.jpg',
-        'lib/sprites/airplane.png',
         'lib/sprites/sprites.png',
         'lib/sprites/1945transparent.jpg',
         'lib/sprites/1945.jpg',
         'lib/sprites/explosion_0.png',
-        'lib/sprites/images.jpg',
         'lib/sprites/water.jpg',
         'lib/sprites/1942background2.jpg'
       ]);
 
 
       Asteroids.resources.onReady(function() {
-        Asteroids.img = Asteroids.resources.get('lib/sprites/1945.jpg')
+        Asteroids.img = Asteroids.resources.get('lib/sprites/1945.jpg');
         ctx.drawImage(Asteroids.img, 202,245, 20,20, 0, 0, 600,600);
         Asteroids.menu = new Asteroids.MenuView(ctx, canvasEl.width, canvasEl.height);
         Asteroids.menu.startScreen();

@@ -70,7 +70,7 @@
   };
 
   Game.prototype.addNavyShip = function(rand) {
-    if(rand < 1 - Math.pow(0.995, this.currentTime/8)) {
+    if(rand < 1 - Math.pow(0.99, this.currentTime/8)) {
       this.asteroids.push(new Asteroids.NavyShip(this.randomPosition()));
     }
   };
@@ -130,11 +130,11 @@
     var livetext = "LIVES: " + this.lives;
     var scoretext = "SCORE: " + this.score;
     var pauseText = "Click to toggle pause";
-    ctx.font="40px Verdana";
+    ctx.font="30px Verdana";
     ctx.fillStyle='yellow';
     ctx.fillText( livetext, 10,50);
     ctx.fillText( scoretext, 10,100);
-    ctx.font="30px Verdana";
+    ctx.font="20px Verdana";
     ctx.fillText(pauseText, this.width*0.05, this.height*0.95);
 
   };
@@ -200,7 +200,6 @@
   Game.prototype.checkCollisionsHash = function() {
     var xSize = this.width/ 10;
     var ySize = this.height/ 10;
-    this.hashObjects(width, height)
 
   };
 

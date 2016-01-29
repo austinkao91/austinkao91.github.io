@@ -31,11 +31,12 @@
       "scale":2,
       "frames": [1]
     };
+
     var startScreen = new Sprite(startScreenOptions);
-    this.ctx.font="40px Verdana";
+    this.ctx.font="30px Verdana";
     this.ctx.fillStyle='yellow';
     this.ctx.fillText("Click anywhere to Start", this.width*0.2,this.height*0.55);
-    this.ctx.font="30px Verdana";
+    this.ctx.font="20px Verdana";
     this.ctx.fillText("WASD to Move", this.width*0.25,this.height*0.65);
     this.ctx.fillText("Space to Shoot", this.width*0.25,this.height*0.7);
     this.ctx.fillText("B to bomb", this.width*0.25,this.height*0.75);
@@ -54,11 +55,12 @@
   };
 
   MenuView.prototype.clearScreen = function() {
-    // this.ctx.clearRect(0,0,600,600);
-    this.ctx.font="40px Verdana";
+    this.ctx.clearRect(0,0,600,600);
+    this.ctx.drawImage(Asteroids.img, 202,245, 20,20, 0, 0, 600,600);
+    this.ctx.font="30px Verdana";
     this.ctx.fillStyle='yellow';
-    this.ctx.fillText("Game Over!", this.width*0.35,this.height*0.7);
-    this.ctx.fillText("Click anywhere to Try Again", this.width*0.15,this.height*0.78);
+    this.ctx.fillText("Game Over!", this.width*0.2,this.height*0.7);
+    this.ctx.fillText("Click anywhere to Try Again", this.width*0.2,this.height*0.78);
 
   };
 
@@ -78,7 +80,7 @@
   };
 
   MenuView.prototype.displayHighScore = function() {
-    this.ctx.font="40px Verdana";
+    this.ctx.font="30px Verdana";
     this.ctx.fillStyle='yellow';
     this.ctx.fillText("High Scores", this.width*0.2, this.height*0.3);
     for(var i = 0; i < this.highScore.length; i++) {

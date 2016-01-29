@@ -9,7 +9,6 @@
   };
 
   document.addEventListener("keydown", function(event) {
-    console.log("add")
     addKey(event);
   });
 
