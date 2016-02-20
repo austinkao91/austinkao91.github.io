@@ -46,6 +46,9 @@ table {
 #game-canvas {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  border-top: 3px solid black;
+  /*border-left:3px solid black;
+  border-right:3px solid black;*/
   margin-top: 10px;
   height: 600px;
 }
@@ -53,11 +56,11 @@ div {
   display:block;
   width: 600px;
   margin: auto;
-
+  font-size: 0;
 }
 
 #instructions {
-
+  border-bottom: 3px solid black;
   /*border-left:3px solid black;
   border-right:3px solid black;*/
   border-bottom-left-radius: 20px;
