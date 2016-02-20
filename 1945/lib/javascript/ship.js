@@ -82,6 +82,7 @@
       };
 
       var bgAudio = document.getElementById("Laser_Shoot15");
+      bgAudio.load();
       bgAudio.play();
 
       this.game.bullets.push(new Asteroids.Bullet(options1), new Asteroids.Bullet(options2));

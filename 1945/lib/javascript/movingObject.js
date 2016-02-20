@@ -63,6 +63,7 @@
       };
       bgAudio = document.getElementById("navyShipExplosion");
     }
+    bgAudio.load();
     bgAudio.play();
     if(typeof otherObject.points === 'number' ) {
        this.game.score += otherObject.points;

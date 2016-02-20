@@ -35,13 +35,9 @@
     var startScreen = new Sprite(startScreenOptions);
     this.ctx.font="30px Verdana";
     this.ctx.fillStyle='yellow';
-    this.ctx.fillText("Click anywhere to Start", this.width*0.2,this.height*0.55);
+    this.ctx.fillText("Click anywhere to Start", this.width*0.25,this.height*0.75);
     this.ctx.font="20px Verdana";
-    this.ctx.fillText("WASD to Move", this.width*0.25,this.height*0.65);
-    this.ctx.fillText("Space to Shoot", this.width*0.25,this.height*0.7);
-    this.ctx.fillText("B to bomb", this.width*0.25,this.height*0.75);
-    this.ctx.fillText("(once every 5 seconds)", this.width*0.25,this.height*0.8);
-    startScreen.draw(this.ctx, [300,200]);
+    startScreen.draw(this.ctx, [300,275]);
   };
 
   MenuView.prototype.restart = function() {
